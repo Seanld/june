@@ -1,0 +1,4 @@
+git.sr.ht/~seanld/houston v0.4.0 h1:uA2SxvEASkO0aVHWZJevoQdHM7Dn+xlVgfsgnE9frfw=
+git.sr.ht/~seanld/houston v0.4.0/go.mod h1:GfpFSQv/0n6EjEa/Jfm0BHb/gLiruIzMOgHP8DRcwTE=
+golang.org/x/time v0.0.0-20220609170525-579cf78fd858 h1:Dpdu/EMxGMFgq0CeYMh4fazTD2vtlZRYE7wyynxJb9U=
+golang.org/x/time v0.0.0-20220609170525-579cf78fd858/go.mod h1:tRJNPiyCQ0inRvYxbN9jk5I+vvW/OXSQhTDSoE431IQ=

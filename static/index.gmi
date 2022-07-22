@@ -1,0 +1,3 @@
+# Welcome to my statically-hosted Gemini capsule!
+
+This is served via June.
