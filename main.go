@@ -18,10 +18,7 @@ func main() {
 		fmt.Println("ERROR: Failed to get working directory.")
 	}
 
-	staticPath := filepath.Join(dir, "static")
-
-	r.Sandbox("/", staticPath)
-
+	srvPath := flag.String("path", "static", "Path to directory, from which static content is served")
 	crtPathFlag := flag.String("cert", "", "Path to TLS certificate file")
 	keyPathFlag := flag.String("key", "", "Path to TLS private key file")
 	noRateLimitingFlag := flag.Bool("nolimit", false, "Disable rate-limiting")
@@ -30,6 +27,9 @@ func main() {
 	maxRateFlag := flag.Int("trickle", 2, "Rate-limiting trickle rate")
 
 	flag.Parse()
+
+	staticPath := filepath.Join(dir, *srvPath)
+	r.Sandbox("/", staticPath)
 
 	srv := houston.NewServer(&r, &houston.ServerConfig{
 		CertificatePath: *crtPathFlag,
@@ -40,6 +40,7 @@ func main() {
 		MaxRate: rate.Limit(*maxRateFlag),
 
 		EnableLog: !*noLoggingFlag,
+		LogFilePath: "june.log",
 	})
 
 	fmt.Println("Running...")
