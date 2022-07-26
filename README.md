@@ -17,12 +17,14 @@ You should have a certificate file and a key file (CA-signed, or self-signed) re
 
 Assuming your directory structure looked like this:
 
+```
 |-> june
 |-> cert/
 |---> main.crt
 |---> main.key
 |-> static/
 |---> index.gmi
+```
 
 You would run:
 
