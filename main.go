@@ -19,6 +19,8 @@ func main() {
 	}
 
 	srvPath := flag.String("path", "static", "Path to directory, from which static content is served")
+	addrFlag := flag.String("addr", "0.0.0.0", "IP address to listen on")
+	portFlag := flag.Int("port", 1965, "Port to listen on")
 	crtPathFlag := flag.String("cert", "", "Path to TLS certificate file")
 	keyPathFlag := flag.String("key", "", "Path to TLS private key file")
 	noRateLimitingFlag := flag.Bool("nolimit", false, "Disable rate-limiting")
@@ -32,6 +34,9 @@ func main() {
 	r.Sandbox("/", staticPath)
 
 	srv := houston.NewServer(&r, &houston.ServerConfig{
+		Hostname: *addrFlag,
+		Port: uint16(*portFlag),
+
 		CertificatePath: *crtPathFlag,
 		KeyPath: *keyPathFlag,
 
